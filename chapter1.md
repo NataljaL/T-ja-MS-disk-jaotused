@@ -1,130 +1,73 @@
 ---
-title       : Insert the chapter title here
-description : Insert the chapter description here
-attachments :
-  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
+title       : Diskreetsed jaotused
+description : Siin tutvume selliste diskreetsete jaotustega nagu binoom- (Bernoulli), Poissoni ja geomeetriline jaotused. Õpime väljastama nii tõenäosus- kui ka jaotusfunktsioonide väärtuseid, genereemina jaotustest ning kujundama vastavaid graafikuid. Alustame!
 
----
-## A really bad movie
+--- type:NormalExercise lang:r xp:100 skills:1 key:af3c1cf198
+## Binoomjaotus
+**Binoomajaotus** on hästi tuntud *diskreetne* jaotus. Selle jaotuse abil saame kirjeldada huvipakkuva sündmuse $A$ realiseerumiste arvu lõplikus katseseerias, kus kõik katsed on sõltumatud ning igal katsel antud sündmus võib kas realiseeruda või mitte. Eelduseks on ka see, et sündmus $A$ realiseerub igas katses võrdse tõenäosusega. Jaotusel on kaks parameetrit: katsete arv $n$ katseseerias ja sündmuse $A$ realiseerumise tõenäosus ühes katses $p = P(A)$.
 
-```yaml
-type: MultipleChoiceExercise
-lang: r
-xp: 50
-skills: 1
-key: 17f19567b4
-```
+Binoomajotusega on näiteks kirjade arv, kui visata münti 20 korda. Siin on kokku 20 katset ning igal katselt kiri võib tulla tõenäosusega 0.5, seega $X\sim Bin(20,\ 0.5)$, kus $X$='"kirjade koguarv'". Binoomajotusega on seotud `R`-is järgmised funktsioonid:
 
-Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
+* `dbinom()`: binoomjaotuse tõenäosusfunktsiooni väärtuseed, ehk tõenäosused $P(X = x)$;
+* `pbinom()`: kumulatiivsed tõenäosused ehk jaotusfunktsiooni väärtused, $P(X \leq x)$;
+* `qbinom()`: kvantiilide väärtused binoomjaotuse korral;
+* `rbinom()`: (pseudo)juhuslik(ud) väärtus(ed) binoomjaotusest.
 
-`@instructions`
-- Adventure
-- Action
-- Animation
-- Comedy
+Kasuta `help()` või `?`, et teada saada rohkem nende funktsioonide kasutuse kohta.
 
-`@hint`
-Have a look at the plot. Which color does the point with the lowest rating have?
+*** =instructions
+* Oletame, et poes, kus müüakse t-särke, on eelneva statistika põhjal teada: klient ostab särgi tõenäosusega 0.3. Poes on hetkel 8 kliente, kes vaatavad ringi. Kliendid omavahel ei suhtle.
+* Mis on tõenäosus, et kaks nendest ostavad t-särgi?
+* Mis on tõenäosus, et seitse nendest ostavad t-särgi?
+* Mis on tõenäosus, et *vähemalt* kaks nendest ostavad t-särgi? Pane tähele, et pead kasutama argumenti `lower.tail`. Sellel argumendil on kaks võimalikku väärtust: kui `TRUE` (vaikimisi), siis leitakse tõenäosust $P(X\leq x)$, kui `FALSE`, siis $P(X>x)$.
+*** =hint
 
-`@pre_exercise_code`
+*** =pre_exercise_code
 ```{r}
-# The pre exercise code runs code to initialize the user's workspace.
-# You can use it to load packages, initialize datasets and draw a plot in the viewer
 
-movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-library(ggplot2)
-
-ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
 ```
 
-`@sct`
+*** =sample_code
 ```{r}
-# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
+# Mis on tõenäosus, et kaks klienti ostab t-särgi ära? P(X = 2)
+dbinom(2, size = 8, prob = 0.3)
 
-msg_bad <- "That is not correct!"
-msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
-test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
+# Mis on tõenäosus, et seitse klienti ostab t-särgi ära? P(X = 7)
+
+
+# Mis on tõenäosus, et vähemalt kaks klienti ostab t-särgid ära? P(X => 2)
+
+
 ```
 
----
-## More movies
-
-```yaml
-type: NormalExercise
-lang: r
-xp: 100
-skills: 1
-key: 7c700908c7
-```
-
-In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
-
-A dataset with a selection of movies, `movie_selection`, is available in the workspace.
-
-`@instructions`
-- Check out the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
-
-`@hint`
-- Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`.
-
-`@pre_exercise_code`
+*** =solution
 ```{r}
-# You can also prepare your dataset in a specific way in the pre exercise code
-load(url("https://s3.amazonaws.com/assets.datacamp.com/course/teach/movies.RData"))
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"), c("Genre", "Rating", "Run")]
+# Mis on tõenäosus, et kaks klienti ostab t-särgi ära? P(X = 2)
+dbinom(2, size = 8, prob = 0.3)
 
-# Clean up the environment
-rm(Movies)
-```
+# Mis on tõenäosus, et seitse klienti ostab t-särgi ära? P(X = 7)
+dbinom(7, size = 8, prob = 0.3)
 
-`@sample_code`
-```{r}
-# movie_selection is available in your workspace
-
-# Check out the structure of movie_selection
-
-
-# Select movies that have a rating of 5 or higher: good_movies
-
-
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
+# Mis on tõenäosus, et vähemalt kaks klienti ostab t-särgid ära? P(X => 2)
+pbinom(1, size = 8, prob = 0.3, lower.tail = FALSE)
 
 ```
 
-`@solution`
+*** =sct
 ```{r}
-# movie_selection is available in your workspace
 
-# Check out the structure of movie_selection
-str(movie_selection)
+# submission correctness tests
 
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
+test_output_contains("dbinom(7, size = 8, prob  = 0.3)", incorrect_msg = "Kas leidsid tõenäosuse, et 7 klienti 8-st ostab t-särgi?")
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
-```
+test_output_contains("pbinom(1, size = 8, prob = 0.3, lower.tail=FALSE)", incorrect_msg = "Kas leidsid tõenäosuse, et VÄHEMALT kaks klienti ostab t-särgi? Kasutada tuleks funktsiooni `pbinom`")
 
-`@sct`
-```{r}
-# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
-
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
-
-test_object("good_movies")
-
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
-
+# test if the students code produces an error
 test_error()
 
-success_msg("Good work!")
+# Final message the student will see upon completing the exercise
+success_msg("Oivaline! Suundu järgmise harjutuse juurde!")
+
 ```
+
+
