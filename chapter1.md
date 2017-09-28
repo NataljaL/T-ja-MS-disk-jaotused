@@ -85,7 +85,7 @@ skills: 1
 
 
 `@instructions`
-dcds $A$ .</> aefwsf $n$. sdadwrerg $P=k$
+dcds $A$ .aefwsf <script type="math/tex; mode=display"> n </script>. sdadwrerg $P=k$
 
 `@hint`
 
