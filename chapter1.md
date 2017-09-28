@@ -85,7 +85,7 @@ skills: 1
 
 
 `@instructions`
-dcds $A$ . aefwsf $n$. sdadwrerg $P=k$
+dcds $A$ .\n aefwsf $n$. sdadwrerg $P=k$
 
 `@hint`
 
