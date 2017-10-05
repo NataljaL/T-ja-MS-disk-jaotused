@@ -70,41 +70,144 @@ success_msg("Oivaline! Suundu järgmise harjutuse juurde!")
 
 ```
 
+--- type:NormalExercise lang:r xp:100 skills:1 key:1491be4b66
+## Geomeetriline jaotus
+Juhuslik suurus *X* on geomeetrilise jaotusega, kui katseseerias, kus kõik katsed on sõltumatud loetakse katsete arvu kuni sündmuse *A* esmakordse toimumiseni (kaasa arvatud). Igal katsel saab huvipakkuv sündmus *A* realiseeruda tõenäosusega $p=P(A)$. See tõenäosus ongi ainsaks jaotuse parameetriks.
+
+Sageli defineeritakse geomeetrilist jaotust ka alternatiivselt: *X* on katsete arv **enne** esimest toimumist. Just sellist definitsiooni kasutab ka `R`. Analoogiliselt binoomjaotusega on ka geomeetrilisel jaotusel olemas 4 põhifunktsiooni: `dgeom()`, `pgeom()`, `qgeom()`, `rgeom()`. 
+
+Kasuta `help()` või `?` et teada saada rohkem nende funktsioonide kasutuse kohta.
 
 
----
-## <<<New Exercise>>>
-
-```yaml
-type: NormalExercise
-key: 0f4ad4d427
-lang: r
-xp: 100
-skills: 1
-```
+*** =instructions
+* Oletame, et eelneva statistika põhjal on teada ühe väravavahi kohta, et ta püüab palli kinni tõenäosusega 0.82.
+* Leia tõenäosus, et ta püüab alles kolmanda palli, mis lendab tema värava suunas. Arvestades `R`-i definitsiooni, tuleks leida $P(X = 2)$. 
+* Mis on tõenäosus, et ta püüab kinni vaid viienda palli?
+* Mis on tõenäosus, et *vähemalt* kaks palli laseb ta väravasse lüüa, enne kui suudab kinni püüda oma esimese palli?
 
 
-`@instructions`
-dcds $A$ .aefwsf <script type="math/tex; mode=display"> n </script>. sdadwrerg $P=k$
+*** =hint
 
-`@hint`
-
-`@pre_exercise_code`
+*** =pre_exercise_code
 ```{r}
 
 ```
 
-`@sample_code`
+*** =sample_code
+```{r}
+# Olgu X - ebaõnnestunud katsete arv kuni 1. õnnestunud katseni (pole kaasa arvatud).
+
+# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid kolmandat palli? P(X = 2)
+dgeom(2, prob = 0.82)
+
+# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid viiendat palli? P(X = 4)
+
+
+# Mis on tõenäosus, et vähemalt kahte palli ta laseb mööda enne kui suudab 
+# kinni püüda esimest oma palli? P(X >= 2) = P(X > 1)
+
+
+```
+
+*** =solution
+```{r}
+# Olgu X - ebaõnnestunud katsete arv kuni 1. õnnestunud katseni (pole kaasa arvatud).
+
+# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid kolmandat palli? P(X = 2)
+dgeom(2, prob = 0.82)
+
+# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid viiendat palli? P(X = 4)
+dgeom(4, prob = 0.82)
+
+# Mis on tõenäosus, et vähemalt kahte palli ta laseb mööda enne kui suudab 
+# kinni püüda esimest oma palli? P(X >= 2) = P(X > 1)
+pgeom(1,  prob = 0.82, lower.tail = FALSE)
+
+```
+
+*** =sct
+```{r}
+
+# submission correctness tests
+
+test_output_contains("dgeom(4, prob = 0.82)", incorrect_msg = "Kas leidsid tõenäosuse, et väravavaht suudab kinni püüda vaid viiendat palli? P(X = 4)")
+
+test_output_contains("pbinom(1, size = 8, prob = 0.3, lower.tail=FALSE)", incorrect_msg = "Kas leidsid tõenäosuse, et vähemalt kahte palli ta laseb mööda enne kui suudab 
+kinni püüda esimest oma palli? Kasuta funktsiooni `pgeom()` ja argumenti `lower.tail = FALSE`")
+
+# test if the students code produces an error
+test_error()
+
+# Final message the student will see upon completing the exercise
+success_msg("Hiilgav! Said hästi ülesandega hakkama!")
+
+```
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:225fe32057
+## Poissoni jaotus
+Poissoni jaotus sobib hästi  harvade sündmuste arvu kirjeldamiseks, mis võivad juhtuda küllaltki väikese tõenäosusega mingi aja jooksul. Poissoni jaotusel on üks parameeter, $X \sim Po(\lambda)$ ja see on jaotuse keskväärtus. 
+
+Analoogiliselt binoom- ja geomeetrilise jaotustega on ka Poissoni jaotusel olemas 4 põhifunktsiooni: `dpois()`, `ppois()`, `qpois()`, `rpois()`. 
+
+**Näide.** 
+
+*** =instructions
+
+
+*** =hint
+
+*** =pre_exercise_code
 ```{r}
 
 ```
 
-`@solution`
+*** =sample_code
 ```{r}
+# Olgu X - ebaõnnestunud katsete arv kuni 1. õnnestunud katseni (pole kaasa arvatud).
+
+# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid kolmandat palli? P(X = 2)
+dgeom(2, prob = 0.82)
+
+# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid viiendat palli? P(X = 4)
+
+
+# Mis on tõenäosus, et vähemalt kahte palli ta laseb mööda enne kui suudab 
+# kinni püüda esimest oma palli? P(X >= 2) = P(X > 1)
+
 
 ```
 
-`@sct`
+*** =solution
 ```{r}
+# Olgu X - ebaõnnestunud katsete arv kuni 1. õnnestunud katseni (pole kaasa arvatud).
+
+# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid kolmandat palli? P(X = 2)
+dgeom(2, prob = 0.82)
+
+# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid viiendat palli? P(X = 4)
+dgeom(4, prob = 0.82)
+
+# Mis on tõenäosus, et vähemalt kahte palli ta laseb mööda enne kui suudab 
+# kinni püüda esimest oma palli? P(X >= 2) = P(X > 1)
+pgeom(1,  prob = 0.82, lower.tail = FALSE)
+
+```
+
+*** =sct
+```{r}
+
+# submission correctness tests
+
+test_output_contains("dgeom(4, prob = 0.82)", incorrect_msg = "Kas leidsid tõenäosuse, et väravavaht suudab kinni püüda vaid viiendat palli? P(X = 4)")
+
+test_output_contains("pbinom(1, size = 8, prob = 0.3, lower.tail=FALSE)", incorrect_msg = "Kas leidsid tõenäosuse, et vähemalt kahte palli ta laseb mööda enne kui suudab 
+kinni püüda esimest oma palli? Kasuta funktsiooni `pgeom()` ja argumenti `lower.tail = FALSE`")
+
+# test if the students code produces an error
+test_error()
+
+# Final message the student will see upon completing the exercise
+success_msg("Hiilgav! Said hästi ülesandega hakkama!")
 
 ```
