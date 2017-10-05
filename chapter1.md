@@ -105,7 +105,7 @@ dgeom(2, prob = 0.82)
 
 # Mis on tõenäosus, et vähemalt kahte palli ta laseb mööda enne kui suudab 
 # kinni püüda esimest oma palli? P(X >= 2) = P(X > 1)
-
+pgeom(__, prob = ____, lower.tail = ______)
 
 ```
 
@@ -132,7 +132,7 @@ pgeom(1,  prob = 0.82, lower.tail = FALSE)
 
 test_output_contains("dgeom(4, prob = 0.82)", incorrect_msg = "Kas leidsid tõenäosuse, et väravavaht suudab kinni püüda vaid viiendat palli? P(X = 4)")
 
-test_output_contains("pbinom(1, size = 8, prob = 0.3, lower.tail=FALSE)", incorrect_msg = "Kas leidsid tõenäosuse, et vähemalt kahte palli ta laseb mööda enne kui suudab 
+test_output_contains("pgeom(1,  prob = 0.82, lower.tail = FALSE)", incorrect_msg = "Kas leidsid tõenäosuse, et vähemalt kahte palli ta laseb mööda enne kui suudab 
 kinni püüda esimest oma palli? Kasuta funktsiooni `pgeom()` ja argumenti `lower.tail = FALSE`")
 
 # test if the students code produces an error
@@ -144,16 +144,18 @@ success_msg("Hiilgav! Said hästi ülesandega hakkama!")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:225fe32057
+--- type:NormalExercise lang:r xp:100 skills:1 key:ab6e18150d
 ## Poissoni jaotus
 Poissoni jaotus sobib hästi  harvade sündmuste arvu kirjeldamiseks, mis võivad juhtuda küllaltki väikese tõenäosusega mingi aja jooksul. Poissoni jaotusel on üks parameeter, $X \sim Po(\lambda)$ ja see on jaotuse keskväärtus. 
 
 Analoogiliselt binoom- ja geomeetrilise jaotustega on ka Poissoni jaotusel olemas 4 põhifunktsiooni: `dpois()`, `ppois()`, `qpois()`, `rpois()`. 
 
-**Näide.** 
+**Näide.** On teada, et linnas *T* juhtub keskmiselt 3 liiklusõnnetust ööpäevas. Tähistagu *X* liiklusõnnetuste arvu ööpäevas selles linnas. Et linnas elab üle 10000 elanikku, on liiklusõnnetuse tõenäosus küllalt väike ja on alust arvata, et juhusliku suuruse *X* kirjeldamiseks sobib Poissoni jaotus, $X\šim Po(3)$.
+
+Tee läbi järgmised ülesanded.
 
 *** =instructions
-
+1. 
 
 *** =hint
 
