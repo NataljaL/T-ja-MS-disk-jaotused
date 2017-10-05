@@ -144,20 +144,26 @@ success_msg("Hiilgav! Said hästi ülesandega hakkama!")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ab6e18150d
+--- type:NormalExercise lang:r xp:100 skills:1 key:9e28345bca
 ## Poissoni jaotus
 Poissoni jaotus sobib hästi  harvade sündmuste arvu kirjeldamiseks, mis võivad juhtuda küllaltki väikese tõenäosusega mingi aja jooksul. Poissoni jaotusel on üks parameeter, $X \sim Po(\lambda)$ ja see on jaotuse keskväärtus. 
 
 Analoogiliselt binoom- ja geomeetrilise jaotustega on ka Poissoni jaotusel olemas 4 põhifunktsiooni: `dpois()`, `ppois()`, `qpois()`, `rpois()`. 
 
-**Näide.** On teada, et linnas *T* juhtub keskmiselt 3 liiklusõnnetust ööpäevas. Tähistagu *X* liiklusõnnetuste arvu ööpäevas selles linnas. Et linnas elab üle 10000 elanikku, on liiklusõnnetuse tõenäosus küllalt väike ja on alust arvata, et juhusliku suuruse *X* kirjeldamiseks sobib Poissoni jaotus, $X\šim Po(3)$.
+**Näide.** On teada, et linnas *T* juhtub keskmiselt 3 liiklusõnnetust ööpäevas. Tähistagu *X* liiklusõnnetuste arvu ööpäevas selles linnas. Et linnas elab üle 10000 elanikku, on liiklusõnnetuse tõenäosus küllalt väike ja on alust arvata, et juhusliku suuruse *X* kirjeldamiseks sobib Poissoni jaotus, $X\sim Po(3)$.
 
 Tee läbi järgmised ülesanded.
 
 *** =instructions
-1. 
+1. Tõenäosus, et ööpäeva jooksul juhtub linnas *T* täpselt 1 liiklusõnnetus, on juba leitud (muutuja `yl1`). Uuri!
+2. Leia tõenäosus, et ööpäeva jooksul ei juhtu ühtegi õnnetust, $P(X = 0)$, omista vastus muutujale `yl2`.
+3. Leia tõenäosus, et ööpäeva jooskul juhtub mitte rohkem kui 2 liiklusõnnetust, $P(X\leq 2)$, omista muutujale `yl3`.
+4. Leia tõenäosus, et ööpäeva jooksul juhtub vähemalt 5 liiklusõnnetust, $P(X\geq 5)$, omista muutujale `yl4`.
 
 *** =hint
+Viimast ülesannet saab lahendada kahel viisil:
+1. vastandsündmuse tõenäosuse kaudu: $P(X\geq 5) = 1 - P(X\leq 5)$, kus viimase tõenäosuse leidmiseks kasutada funktsiooni `ppois()`;
+2. funktsiooni `ppois()` ja argumendi `lower.tail = FALSE` abil. Arvesta, et selle abil saab leida $P(X > x)$.
 
 *** =pre_exercise_code
 ```{r}
@@ -166,33 +172,37 @@ Tee läbi järgmised ülesanded.
 
 *** =sample_code
 ```{r}
-# Olgu X - ebaõnnestunud katsete arv kuni 1. õnnestunud katseni (pole kaasa arvatud).
+# Olgu X liiklusõnnetuste arv ööpäevas linnas T.
 
-# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid kolmandat palli? P(X = 2)
-dgeom(2, prob = 0.82)
+# Tõenäosus, et ööpäeva jooksul juhtub linnas täpselt 1 liiklusõnnetus:
+yl1 <- dpois(1, lambda = 3)
 
-# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid viiendat palli? P(X = 4)
+# Tõenäosus, et ööpäeva jooksul ei juhtu ühtegi õnnetust, P(X = 0):
+yl2 <- 
 
+# Tõenäosus, et ööpäeva jooskul juhtub mitte rohkem kui 2 liiklusõnnetust, P(X <= 2): 
+yl3 <-
 
-# Mis on tõenäosus, et vähemalt kahte palli ta laseb mööda enne kui suudab 
-# kinni püüda esimest oma palli? P(X >= 2) = P(X > 1)
-
+# Tõenäosus, et ööpäeva jooksul juhtub vähemalt 5 liiklusõnnetust, P(X >= 5) = P(X > 4):
+yl4 <- 
 
 ```
 
 *** =solution
 ```{r}
-# Olgu X - ebaõnnestunud katsete arv kuni 1. õnnestunud katseni (pole kaasa arvatud).
+# Olgu X liiklusõnnetuste arv ööpäevas linnas T.
 
-# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid kolmandat palli? P(X = 2)
-dgeom(2, prob = 0.82)
+# Tõenäosus, et ööpäeva jooksul juhtub linnas täpselt 1 liiklusõnnetus:
+yl1 <- dpois(1, lambda = 3)
 
-# Mis on tõenäosus, et väravavaht suudab kinni püüda vaid viiendat palli? P(X = 4)
-dgeom(4, prob = 0.82)
+# Tõenäosus, et ööpäeva jooksul ei juhtu ühtegi õnnetust, P(X = 0):
+yl2 <- dpois(0, lambda = 3)
 
-# Mis on tõenäosus, et vähemalt kahte palli ta laseb mööda enne kui suudab 
-# kinni püüda esimest oma palli? P(X >= 2) = P(X > 1)
-pgeom(1,  prob = 0.82, lower.tail = FALSE)
+# Tõenäosus, et ööpäeva jooskul juhtub mitte rohkem kui 2 liiklusõnnetust, P(X <= 2): 
+yl3 <- ppois(2, lambda = 3)
+
+# Tõenäosus, et ööpäeva jooksul juhtub vähemalt 5 liiklusõnnetust, P(X >= 5) = P(X > 4):
+yl4 <- ppois(4, lambda = 3, lower.tail = FALSE)
 
 ```
 
@@ -201,15 +211,14 @@ pgeom(1,  prob = 0.82, lower.tail = FALSE)
 
 # submission correctness tests
 
-test_output_contains("dgeom(4, prob = 0.82)", incorrect_msg = "Kas leidsid tõenäosuse, et väravavaht suudab kinni püüda vaid viiendat palli? P(X = 4)")
-
-test_output_contains("pbinom(1, size = 8, prob = 0.3, lower.tail=FALSE)", incorrect_msg = "Kas leidsid tõenäosuse, et vähemalt kahte palli ta laseb mööda enne kui suudab 
-kinni püüda esimest oma palli? Kasuta funktsiooni `pgeom()` ja argumenti `lower.tail = FALSE`")
+test_object("yl2", undefined_msg = NULL, incorrect_msg = "Kas kasutasid funktsiooni `dpois()`, et leida $P(X = 0)$?")
+test_object("yl3", undefined_msg = NULL, incorrect_msg = "Kas kasutasid funktsiooni `ppois()`, et leida $P(X <= 2)$?")
+test_object("yl4", undefined_msg = NULL, incorrect_msg = "Kas kasutasid funktsiooni `ppois()`, et leida $P(X > 4)$ ja argumenti `lower.tail = FALSE`?")
 
 # test if the students code produces an error
 test_error()
 
 # Final message the student will see upon completing the exercise
-success_msg("Hiilgav! Said hästi ülesandega hakkama!")
+success_msg("Võrratu! Kolm diskreetset jaotust on nüüd selged!")
 
 ```
