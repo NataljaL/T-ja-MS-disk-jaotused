@@ -230,10 +230,10 @@ Oskad juba leida tõenäosusi $P(X=k)$ binoom-, geomeetrilise ja Poissoni jaotus
 
 Põhiline funktsioon graafikute joonistamiseks on `plot()`, millel on väga palju argmente. Neid saad uurida käsuga `help(plot)` või `?plot`. Siin kasutame:
 
-* `x` ja `y` -- koordinaatide vektorid,
-* `main` -- graafiku pealkiri jutumärkide vahel,
-* `type = 'h'` -- (sõnast *histogram*) vertikaalsete joonte tegemiseks,
-* `col = "red"` -- võimalik on muuta joonte värvi.
+* `x` ja `y` - koordinaatide vektorid,
+* `main` - graafiku pealkiri jutumärkide vahel,
+* `type = 'h'` - (sõnast *histogram*) vertikaalsete joonte tegemiseks,
+* `col = "red"` - võimalik on muuta joonte värvi.
 
 *** =instructions
 * **Näide.** Olgu *X* juhuslik suurus, mis vastab Androidil põhinevate nutitelefonide arv auditoorimis 45 üliõpilasega ja olgu $X\sim B(45, 0.7)$, kus 0.7 on tõenäosus, et juhuslikult valitud üiõpilasel on olemas Androidil põhinev nutitelefon. Joonistame sellele jaotusele vastava graafiku:
