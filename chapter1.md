@@ -23,6 +23,7 @@ Kasuta `help()` või `?`, et teada saada rohkem nende funktsioonide kasutuse koh
 * Mis on tõenäosus, et seitse nendest ostab t-särgi?
 * Mis on tõenäosus, et *vähemalt* kaks nendest ostab t-särgi? Pane tähele, et pead kasutama argumenti `lower.tail`. Sellel argumendil on kaks võimalikku väärtust: kui `TRUE` (vaikimisi), siis leitakse tõenäosust $P(X\leq x)$, kui `FALSE`, siis $P(X>x)$.
 *** =hint
+Viimases ülesandes pane tähele, et `lower.tail = FALSE` leiab tõenäosust $P(X > x)$. Arvesta, et $P(X \geq 2) = P(X > 1)$.
 
 *** =pre_exercise_code
 ```{r}
@@ -37,7 +38,7 @@ dbinom(2, size = 8, prob = 0.3)
 # Mis on tõenäosus, et seitse klienti ostab t-särgi ära? P(X = 7)
 
 
-# Mis on tõenäosus, et vähemalt kaks klienti ostab t-särgid ära? P(X => 2)
+# Mis on tõenäosus, et vähemalt kaks klienti ostab t-särgid ära? P(X >= 2) = P(X > 1)
 
 
 ```
