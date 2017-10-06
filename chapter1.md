@@ -223,7 +223,7 @@ success_msg("Võrratu! Kolm diskreetset jaotust on nüüd selged!")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c0892655c9
+--- type:NormalExercise lang:r xp:100 skills:1 key:b9a2b3062a
 ## Andmete visualiseerimine
 
 Oskad juba leida tõenäosusi $P(X=k)$ binoom-, geomeetrilise ja Poissoni jaotuse korral.  Sageli on mugav esitada jaotust ka graafiku abil (näiteks saab graafiku abil leida suurima tõenäosusega väärtust, kas jaotus on üks tipp või mitu, kas jaotus on sümmeetriline jne).
@@ -241,13 +241,10 @@ Põhiline funktsioon jooniste tegemiseks on `plot()`, millel on väga palju argm
         - muutuja `k` vastab juhusliku suuruse `X` võimalikele väärtustele, milleks on vektor (0, 1, 2, ..., 45).
         - muutuja `p` vastab binoomjaotuse tõenäosustele, mis on leitud binoomjaotuse tõenäosusfunktsiooni abil: $P(X = k)=C_45^k 0.7^k (1-0.7)^{45-k}$.
         - saadud vektorite põhjal on tehtud histogramm funktiooni `plot` abil.
-* **Ülesanne.** 
+* **Ülesanne.** Olgu teada, et näpuvigade arv (*Y*) statistika konspektis ühe lehekülje kohta on Poissoni jaotusega juhuslik suurus, $Y\sim Po(0.4)$. Juhuslikult valitud leheküljel võib esineda 0, 1, 2, 3,.. viga. Joonista histogramm, mis vastab jaotusele $Po(0.4)$. Graafiku pealkirjaks pane *Poissoni jaotus parameetriga 0.4*. Tulbad värvi sinise värviga.
 
 
 *** =hint
-Viimast ülesannet saab lahendada kahel viisil:
-1. vastandsündmuse tõenäosuse kaudu: $P(X\geq 5) = 1 - P(X\leq 5)$, kus viimase tõenäosuse leidmiseks kasutada funktsiooni `ppois()`;
-2. funktsiooni `ppois()` ja argumendi `lower.tail = FALSE` abil. Arvesta, et selle abil saab leida $P(X > x)$.
 
 *** =pre_exercise_code
 ```{r}
@@ -256,19 +253,6 @@ Viimast ülesannet saab lahendada kahel viisil:
 
 *** =sample_code
 ```{r}
-# Olgu X liiklusõnnetuste arv ööpäevas linnas T.
-
-# Tõenäosus, et ööpäeva jooksul juhtub linnas täpselt 1 liiklusõnnetus:
-yl1 <- dpois(1, lambda = 3)
-
-# Tõenäosus, et ööpäeva jooksul ei juhtu ühtegi õnnetust, P(X = 0):
-yl2 <- 
-
-# Tõenäosus, et ööpäeva jooskul juhtub mitte rohkem kui 2 liiklusõnnetust, P(X <= 2): 
-yl3 <-
-
-# Tõenäosus, et ööpäeva jooksul juhtub vähemalt 5 liiklusõnnetust, P(X >= 5) = P(X > 4):
-yl4 <- 
 
 ```
 
