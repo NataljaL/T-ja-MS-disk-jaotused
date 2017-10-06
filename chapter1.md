@@ -8,7 +8,7 @@ Tegu on hästi tuntud diskreetse jaotusega. Selle jaotuse abil saame kirjeldada 
 
 Jaotusel on kaks parameetrit: katsete arv $n$  ja sündmuse $A$ realiseerumise tõenäosus ühes katses $p = P(A)$.
 
-Binoomajotusega on näiteks kirjade arv, kui visata münti 20 korda. Siin on kokku 20 katset ning igal katselt kiri võib tulla tõenäosusega 0.5, seega $X\sim Bin(20,\ 0.5)$, kus $X$='"kirjade koguarv'". Binoomajotusega on seotud `R`-is järgmised funktsioonid:
+Binoomajotusega on näiteks kirjade arv, kui visata münti 20 korda. Siin on kokku 20 katset ning igal katselt kiri võib tulla tõenäosusega 0.5, seega $X\sim Bin(20,\ 0.5)$ ja $X$='"kirjade koguarv'". Binoomajotusega on seotud `R`-is järgmised funktsioonid:
 
 * `dbinom()`: binoomjaotuse tõenäosusfunktsiooni väärtuseed, ehk tõenäosused $P(X = x)$;
 * `pbinom()`: kumulatiivsed tõenäosused ehk jaotusfunktsiooni väärtused, $P(X \leq x)$;
