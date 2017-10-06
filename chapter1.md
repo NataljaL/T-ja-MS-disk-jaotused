@@ -228,7 +228,7 @@ success_msg("Võrratu! Kolm diskreetset jaotust on nüüd selged!")
 
 Oskad juba leida tõenäosusi $P(X=k)$ binoom-, geomeetrilise ja Poissoni jaotuse korral.  Sageli on mugav esitada jaotust ka graafiku abil.
 
-Põhiline funktsioon jooniste tegemiseks on `plot()`, millel on väga palju argmente. Neid saad uurida käsuga `help(plot)` või `?plot`. Siin läheb vaja järgmisi argumente:
+Põhiline funktsioon graafikute joonistamiseks on `plot()`, millel on väga palju argmente. Neid saad uurida käsuga `help(plot)` või `?plot`. Siin läheb vaja järgmisi argumente:
 
 * `x` ja `y` -- koordinaatide vektorid,
 * `main = ` -- graafiku pealkiri jutumärkide vahel,
