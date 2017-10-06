@@ -254,14 +254,12 @@ Põhiline funktsioon graafikute joonistamiseks on `plot()`, millel on väga palj
 
 *** =sample_code
 ```{r}
-# Näide.
-
+# Näide:
 k <- 0:45 #täisarvuline vektor väärtustega 0, 2, ..., 45
 p <- dbinom(k, 45, 0.7) #vektorile k vastavad tõenäosused binoomjaotuse järgi
 plot(k, p, type = "h", main = "Binoomajotus parameetritega 45 ja 0.7", col = "green")
 
-# Ülesanne.
-
+# Ülesanne:
 k <- ___ : 50 #oletame, et vigade arvude maksimum on 50 
 p <- ______(k, ____)
 plot(______________)
@@ -270,14 +268,12 @@ plot(______________)
 
 *** =solution
 ```{r}
-# Näide.
-
+# Näide:
 k <- 0:45 #täisarvuline vektor väärtustega 0, 2, ..., 45
 p <- dbinom(k, 45, 0.7) #vektorile k vastavad tõenäosused binoomjaotuse järgi
 plot(k, p, type = "h", main = "Binoomajotus parameetritega 45 ja 0.7", col = "green")
 
-# Ülesanne.
-
+# Ülesanne:
 k <- 0 : 50 #oletame, et vigade arvude maksimum on 50 
 p <- dpois(k, 0.4)
 plot(k, p, type = "h", main = "Poissoni jaotus parameetriga 0.4", col = "blue")
