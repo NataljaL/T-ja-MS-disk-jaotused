@@ -237,8 +237,8 @@ Põhiline funktsioon graafikute joonistamiseks on `plot()`, millel on väga palj
 
 *** =instructions
 * **Näide.** Olgu *X* juhuslik suurus, mis vastab Androidil põhinevate nutitelefonide arvule auditoorimis 45 üliõpilasega. On teada, et $X\sim B(45, 0.7)$, kus 0.7 on tõenäosus, et juhuslikult valitud üiõpilane omab Androidil põhinevat nutitelefoni. Joonistame jaotusele vastava graafiku:
-* muutuja `k` vastab juhusliku suuruse `X` võimalikele väärtustele, milleks on vektor (0, 1, 2, ..., 45).
-* muutuja `p` vastab binoomjaotuse tõenäosustele, mis on leitud binoomjaotuse tõenäosusfunktsiooni abil: $P(X = k)=C_45^k 0.7^k (1-0.7)^{45-k}$.
+* muutuja `k` vastab jaotuse võimalikele väärtustele (vektor täisarvudega 0, 1, 2, ..., 45);
+* muutuja `p` vastab binoomjaotuse tõenäosustele, $P(X = k)=C_45^k 0.7^k (1-0.7)^{45-k}$, samuti vektor.
 * saadud vektorite põhjal on tehtud histogramm funktiooni `plot` abil.
 * **Ülesanne.** Olgu teada, et näpuvigade arv (*Y*) statistika konspektis ühe lehekülje kohta on Poissoni jaotusega juhuslik suurus, $Y\sim Po(0.4)$.  Juhuslikult valitud leheküljel võib esineda 0, 1, 2, 3,... viga. Joonista histogramm, mis vastab jaotusele $Po(0.4)$. Graafiku pealkirjaks pane *Poissoni jaotus parameetriga 0.4*. Tulbad värvi sinise värviga.
 
