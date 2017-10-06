@@ -91,6 +91,7 @@ Kasuta `help()` või `?` et teada saada rohkem nende funktsioonide kasutuse koht
 
 *** =hint
 
+
 *** =pre_exercise_code
 ```{r}
 
