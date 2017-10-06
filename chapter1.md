@@ -20,7 +20,7 @@ Kasuta `help()` või `?`, et teada saada rohkem nende funktsioonide kasutuse koh
 *** =instructions
 * Oletame, et poes, kus müüakse t-särke, on eelneva statistika põhjal teada: klient ostab särgi tõenäosusega 0.3. Poes on hetkel 8 kliente, kes vaatavad ringi. Kliendid omavahel ei suhtle.
 * Mis on tõenäosus, et kaks nendest ostavad t-särgi?
-* Mis on tõenäosus, et seitse nendest ostavad t-särgi?
+* Mis on tõenäosus, et seitse nendest ostab t-särgi?
 * Mis on tõenäosus, et *vähemalt* kaks nendest ostavad t-särgi? Pane tähele, et pead kasutama argumenti `lower.tail`. Sellel argumendil on kaks võimalikku väärtust: kui `TRUE` (vaikimisi), siis leitakse tõenäosust $P(X\leq x)$, kui `FALSE`, siis $P(X>x)$.
 *** =hint
 
