@@ -238,6 +238,7 @@ Põhiline funktsioon jooniste tegemiseks on `plot()`, millel on väga palju argm
 
 *** =instructions
 * **Näide.** Olgu *X* juhuslik suurus, mis vastab Androidil põhinevate nutitelefonide arv auditoorimis 45 üliõpilasega ja olgu $X\sim B(45, 0.7)$, kus 0.7 on tõenäosus, et juhuslikult valitud üiõpilasel on olemas Androidil põhinev nutitelefon. Joonistame sellele jaotusele vastava graafiku:
+
         - muutuja `k` vastab juhusliku suuruse `X` võimalikele väärtustele, milleks on vektor (0, 1, 2, ..., 45).
         - muutuja `p` vastab binoomjaotuse tõenäosustele, mis on leitud binoomjaotuse tõenäosusfunktsiooni abil: $P(X = k)=C_45^k 0.7^k (1-0.7)^{45-k}$.
         - saadud vektorite põhjal on tehtud histogramm funktiooni `plot` abil.
