@@ -274,7 +274,7 @@ p <- dbinom(k, 45, 0.7) #vektorile k vastavad tõenäosused binoomjaotuse järgi
 plot(k, p, type = "h", main = "Binoomajotus parameetritega 45 ja 0.7", col = "green")
 
 # Ülesanne:
-k <- 0 : 50 #oletame, et vigade arvude maksimum on 50 
+k <- 0 : 10 #oletame, et vigade arvude maksimum on 10 
 p <- dpois(k, 0.4)
 plot(k, p, type = "h", main = "Poissoni jaotus parameetriga 0.4", col = "blue")
 
@@ -285,7 +285,7 @@ plot(k, p, type = "h", main = "Poissoni jaotus parameetriga 0.4", col = "blue")
 
 # submission correctness tests
 
-test_object("k", undefined_msg = NULL, incorrect_msg = "Muutuja `k` peab olema vektor täisarvudega 0-st kuni 50-ni.")
+test_object("k", undefined_msg = NULL, incorrect_msg = "Muutuja `k` peab olema vektor täisarvudega 0-st kuni 10-ni.")
 test_object("p", undefined_msg = NULL, incorrect_msg = "Kas kasutasid funktsiooni `dpois()`, et leida tõenäosuste vektor?")
 
 test_function("plot", args=c("main", "col"), incorrect_msg = c("Kas kasutasid argumendi `main`, et väljastada graafikule pealkiri?", "Kas kasutasid sinist värvi tulpadele? (ingl. blue)"))
