@@ -231,8 +231,7 @@ Oskad juba leida tõenäosusi $P(X=k)$ binoom-, geomeetrilise ja Poissoni jaotus
 Põhiline funktsioon graafikute joonistamiseks on `plot()`, millel on väga palju argmente. Neid saad uurida käsuga `help(plot)` või `?plot`. Siin kasutame:
 
 * `x` ja `y` -- koordinaatide vektorid,
-* `main = ` -- graafiku pealkiri jutumärkide vahel,
-* `xlab = ` ja `ylab = ` -- vastavalt *x* ja *y* telgede nimed jutumärkide vahel,
+* `main` -- graafiku pealkiri jutumärkide vahel,
 * `type = 'h'` -- (sõnast *histogram*) vertikaalsete joonte tegemiseks,
 * `col = "red"` -- võimalik on muuta joonte värvi.
 
