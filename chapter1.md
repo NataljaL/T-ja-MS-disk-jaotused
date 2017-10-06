@@ -260,7 +260,7 @@ p <- dbinom(k, 45, 0.7) #vektorile k vastavad tõenäosused binoomjaotuse järgi
 plot(k, p, type = "h", main = "Binoomajotus parameetritega 45 ja 0.7", col = "green")
 
 # Ülesanne:
-k <- ___ : 50 #oletame, et vigade arvude maksimum on 50 
+k <- ___ : 10 #oletame, et vigade arvude maksimum on 10 
 p <- ______(k, ____)
 plot(______________)
 
