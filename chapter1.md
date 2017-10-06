@@ -38,7 +38,7 @@ dbinom(2, size = 8, prob = 0.3)
 # Mis on tõenäosus, et seitse klienti ostab t-särgi ära? P(X = 7)
 
 
-# Mis on tõenäosus, et vähemalt kaks klienti ostab t-särgid ära? P(X >= 2) = P(X > 1)
+# Mis on tõenäosus, et vähemalt kaks klienti ostab t-särgid ära? P(X >= 2) 
 
 
 ```
@@ -51,7 +51,7 @@ dbinom(2, size = 8, prob = 0.3)
 # Mis on tõenäosus, et seitse klienti ostab t-särgi ära? P(X = 7)
 dbinom(7, size = 8, prob = 0.3)
 
-# Mis on tõenäosus, et vähemalt kaks klienti ostab t-särgid ära? P(X => 2)
+# Mis on tõenäosus, et vähemalt kaks klienti ostab t-särgid ära? P(X >= 2)
 pbinom(1, size = 8, prob = 0.3, lower.tail = FALSE)
 
 ```
