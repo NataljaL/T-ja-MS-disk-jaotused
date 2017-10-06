@@ -223,7 +223,7 @@ success_msg("Võrratu! Kolm diskreetset jaotust on nüüd selged!")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:71dbad57bd
+--- type:NormalExercise lang:r xp:100 skills:1 key:c0892655c9
 ## Andmete visualiseerimine
 
 Oskad juba leida tõenäosusi $P(X=k)$ binoom-, geomeetrilise ja Poissoni jaotuse korral.  Sageli on mugav esitada jaotust ka graafiku abil (näiteks saab graafiku abil leida suurima tõenäosusega väärtust, kas jaotus on üks tipp või mitu, kas jaotus on sümmeetriline jne).
@@ -237,10 +237,12 @@ Põhiline funktsioon jooniste tegemiseks on `plot()`, millel on väga palju argm
 * `col = "red"` -- võimalik on muuta joonte värvi.
 
 *** =instructions
-1. Tõenäosus, et ööpäeva jooksul juhtub linnas *T* täpselt 1 liiklusõnnetus, on juba leitud (muutuja `yl1`). Uuri!
-2. Leia tõenäosus, et ööpäeva jooksul ei juhtu ühtegi õnnetust, $P(X = 0)$, omista vastus muutujale `yl2`.
-3. Leia tõenäosus, et ööpäeva jooskul juhtub mitte rohkem kui 2 liiklusõnnetust, $P(X\leq 2)$, omista muutujale `yl3`.
-4. Leia tõenäosus, et ööpäeva jooksul juhtub vähemalt 5 liiklusõnnetust, $P(X\geq 5)$, omista muutujale `yl4`.
+* **Näide.** Olgu *X* juhuslik suurus, mis vastab Androidil põhinevate nutitelefonide arv auditoorimis 45 üliõpilasega ja olgu $X\sim B(45, 0.7)$, kus 0.7 on tõenäosus, et juhuslikult valitud üiõpilasel on olemas Androidil põhinev nutitelefon. Joonistame sellele jaotusele vastava graafiku:
+        - muutuja `k` vastab juhusliku suuruse `X` võimalikele väärtustele, milleks on vektor (0, 1, 2, ..., 45).
+        - muutuja `p` vastab binoomjaotuse tõenäosustele, mis on leitud binoomjaotuse tõenäosusfunktsiooni abil: $P(X = k)=C_45^k 0.7^k (1-0.7)^{45-k}$.
+        - saadud vektorite põhjal on tehtud histogramm funktiooni `plot` abil.
+* **Ülesanne.** 
+
 
 *** =hint
 Viimast ülesannet saab lahendada kahel viisil:
