@@ -222,3 +222,85 @@ test_error()
 success_msg("Võrratu! Kolm diskreetset jaotust on nüüd selged!")
 
 ```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:71dbad57bd
+## Andmete visualiseerimine
+
+Oskad juba leida tõenäosusi $P(X=k)$ binoom-, geomeetrilise ja Poissoni jaotuse korral.  Sageli on mugav esitada jaotust ka graafiku abil (näiteks saab graafiku abil leida suurima tõenäosusega väärtust, kas jaotus on üks tipp või mitu, kas jaotus on sümmeetriline jne).
+
+Põhiline funktsioon jooniste tegemiseks on `plot()`, millel on väga palju argmente. Neid saad uurida käsuga `help(plot)` või `?plot`. Siin läheb vaja järgmisi argumente:
+
+* `x` ja `y` -- koordinaatide vektorid,
+* `main = ` -- graafiku pealkiri jutumärkide vahel,
+* `xlab = ` ja `ylab = ` -- vastavalt *x* ja *y* telgede nimed jutumärkide vahel,
+* `type = h` -- (sõnast *histogram*) vertikaalsete joonte tegemiseks,
+* `col = "red"` -- võimalik on muuta joonte värvi.
+
+*** =instructions
+1. Tõenäosus, et ööpäeva jooksul juhtub linnas *T* täpselt 1 liiklusõnnetus, on juba leitud (muutuja `yl1`). Uuri!
+2. Leia tõenäosus, et ööpäeva jooksul ei juhtu ühtegi õnnetust, $P(X = 0)$, omista vastus muutujale `yl2`.
+3. Leia tõenäosus, et ööpäeva jooskul juhtub mitte rohkem kui 2 liiklusõnnetust, $P(X\leq 2)$, omista muutujale `yl3`.
+4. Leia tõenäosus, et ööpäeva jooksul juhtub vähemalt 5 liiklusõnnetust, $P(X\geq 5)$, omista muutujale `yl4`.
+
+*** =hint
+Viimast ülesannet saab lahendada kahel viisil:
+1. vastandsündmuse tõenäosuse kaudu: $P(X\geq 5) = 1 - P(X\leq 5)$, kus viimase tõenäosuse leidmiseks kasutada funktsiooni `ppois()`;
+2. funktsiooni `ppois()` ja argumendi `lower.tail = FALSE` abil. Arvesta, et selle abil saab leida $P(X > x)$.
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+# Olgu X liiklusõnnetuste arv ööpäevas linnas T.
+
+# Tõenäosus, et ööpäeva jooksul juhtub linnas täpselt 1 liiklusõnnetus:
+yl1 <- dpois(1, lambda = 3)
+
+# Tõenäosus, et ööpäeva jooksul ei juhtu ühtegi õnnetust, P(X = 0):
+yl2 <- 
+
+# Tõenäosus, et ööpäeva jooskul juhtub mitte rohkem kui 2 liiklusõnnetust, P(X <= 2): 
+yl3 <-
+
+# Tõenäosus, et ööpäeva jooksul juhtub vähemalt 5 liiklusõnnetust, P(X >= 5) = P(X > 4):
+yl4 <- 
+
+```
+
+*** =solution
+```{r}
+# Olgu X liiklusõnnetuste arv ööpäevas linnas T.
+
+# Tõenäosus, et ööpäeva jooksul juhtub linnas täpselt 1 liiklusõnnetus:
+yl1 <- dpois(1, lambda = 3)
+
+# Tõenäosus, et ööpäeva jooksul ei juhtu ühtegi õnnetust, P(X = 0):
+yl2 <- dpois(0, lambda = 3)
+
+# Tõenäosus, et ööpäeva jooskul juhtub mitte rohkem kui 2 liiklusõnnetust, P(X <= 2): 
+yl3 <- ppois(2, lambda = 3)
+
+# Tõenäosus, et ööpäeva jooksul juhtub vähemalt 5 liiklusõnnetust, P(X >= 5) = P(X > 4):
+yl4 <- ppois(4, lambda = 3, lower.tail = FALSE)
+
+```
+
+*** =sct
+```{r}
+
+# submission correctness tests
+
+test_object("yl2", undefined_msg = NULL, incorrect_msg = "Kas kasutasid funktsiooni `dpois()`, et leida $P(X = 0)$?")
+test_object("yl3", undefined_msg = NULL, incorrect_msg = "Kas kasutasid funktsiooni `ppois()`, et leida $P(X <= 2)$?")
+test_object("yl4", undefined_msg = NULL, incorrect_msg = "Kas kasutasid funktsiooni `ppois()`, et leida $P(X > 4)$ ja argumenti `lower.tail = FALSE`?")
+
+# test if the students code produces an error
+test_error()
+
+# Final message the student will see upon completing the exercise
+success_msg("Võrratu! Kolm diskreetset jaotust on nüüd selged!")
+
+```
