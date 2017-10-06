@@ -232,7 +232,7 @@ Põhiline funktsioon graafikute joonistamiseks on `plot()`, millel on väga palj
 
 * `x` ja `y` - koordinaatide vektorid,
 * `main` - graafiku pealkiri jutumärkide vahel,
-* `type = 'h'` - (sõnast *histogram*) vertikaalsete joonte tegemiseks,
+* `type = "h"` - (sõnast *histogram*) vertikaalsete joonte tegemiseks,
 * `col = "red"` - võimalik on muuta joonte värvi.
 
 *** =instructions
@@ -258,7 +258,7 @@ Põhiline funktsioon graafikute joonistamiseks on `plot()`, millel on väga palj
 
 k <- 0:45 #täisarvuline vektor väärtustega 0, 2, ..., 45
 p <- dbinom(k, 45, 0.7) #vektorile k vastavad tõenäosused binoomjaotuse järgi
-plot(k, p, type = 'h', main = "Binoomajotus parameetritega 45 ja 0.7", col = "green")
+plot(k, p, type = "h", main = "Binoomajotus parameetritega 45 ja 0.7", col = "green")
 
 # Ülesanne.
 
@@ -274,13 +274,13 @@ plot(______________)
 
 k <- 0:45 #täisarvuline vektor väärtustega 0, 2, ..., 45
 p <- dbinom(k, 45, 0.7) #vektorile k vastavad tõenäosused binoomjaotuse järgi
-plot(k, p, type = 'h', main = "Binoomajotus parameetritega 45 ja 0.7", col = "green")
+plot(k, p, type = "h", main = "Binoomajotus parameetritega 45 ja 0.7", col = "green")
 
 # Ülesanne.
 
 k <- 0 : 50 #oletame, et vigade arvude maksimum on 50 
 p <- dpois(k, 0.4)
-plot(k, p, type = 'h', main = "Poissoni jaotus parameetriga 0.4", col = "blue")
+plot(k, p, type = "h", main = "Poissoni jaotus parameetriga 0.4", col = "blue")
 
 ```
 
