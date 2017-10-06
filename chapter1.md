@@ -4,7 +4,7 @@ description : Siin tutvume selliste diskreetsete jaotustega nagu binoom- (Bernou
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:af3c1cf198
 ## Binoomjaotus
-Binoomajaotus on hästi tuntud diskreetne jaotus. Selle jaotuse abil saame kirjeldada huvipakkuva sündmuse $A$ realiseerumiste arvu lõplikus katseseerias, kus kõik katsed on sõltumatud ning igal katsel antud sündmus võib kas realiseeruda või mitte. Eelduseks on ka see, et sündmus $A$ realiseerub igas katses võrdse tõenäosusega. Jaotusel on kaks parameetrit: katsete arv $n$ katseseerias ja sündmuse $A$ realiseerumise tõenäosus ühes katses $p = P(A)$.
+Tegu on hästi tuntud diskreetne jaotusega. Selle jaotuse abil saame kirjeldada huvipakkuva sündmuse $A$ realiseerumiste arvu lõplikus katseseerias, kus kõik katsed on sõltumatud ning igal katsel antud sündmus võib kas realiseeruda või mitte. Eelduseks on ka see, et sündmus $A$ realiseerub igas katses võrdse tõenäosusega. Jaotusel on kaks parameetrit: katsete arv $n$ katseseerias ja sündmuse $A$ realiseerumise tõenäosus ühes katses $p = P(A)$.
 
 Binoomajotusega on näiteks kirjade arv, kui visata münti 20 korda. Siin on kokku 20 katset ning igal katselt kiri võib tulla tõenäosusega 0.5, seega $X\sim Bin(20,\ 0.5)$, kus $X$='"kirjade koguarv'". Binoomajotusega on seotud `R`-is järgmised funktsioonid:
 
