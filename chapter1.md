@@ -226,7 +226,7 @@ success_msg("Võrratu! Kolm diskreetset jaotust on nüüd selged!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:9d4edac953
 ## Andmete visualiseerimine
 
-Oskad juba leida tõenäosusi $P(X=k)$ binoom-, geomeetrilise ja Poissoni jaotuse korral.  Sageli on mugav esitada jaotust ka graafiku abil (näiteks saab graafiku abil leida suurima tõenäosusega väärtust, kas jaotus on üks tipp või mitu, kas jaotus on sümmeetriline jne).
+Oskad juba leida tõenäosusi $P(X=k)$ binoom-, geomeetrilise ja Poissoni jaotuse korral.  Sageli on mugav esitada jaotust ka graafiku abil.
 
 Põhiline funktsioon jooniste tegemiseks on `plot()`, millel on väga palju argmente. Neid saad uurida käsuga `help(plot)` või `?plot`. Siin läheb vaja järgmisi argumente:
 
