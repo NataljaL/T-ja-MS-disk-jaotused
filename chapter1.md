@@ -223,7 +223,7 @@ success_msg("Võrratu! Kolm diskreetset jaotust on nüüd selged!")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:b9a2b3062a
+--- type:NormalExercise lang:r xp:100 skills:1 key:9d4edac953
 ## Andmete visualiseerimine
 
 Oskad juba leida tõenäosusi $P(X=k)$ binoom-, geomeetrilise ja Poissoni jaotuse korral.  Sageli on mugav esitada jaotust ka graafiku abil (näiteks saab graafiku abil leida suurima tõenäosusega väärtust, kas jaotus on üks tipp või mitu, kas jaotus on sümmeetriline jne).
@@ -233,7 +233,7 @@ Põhiline funktsioon jooniste tegemiseks on `plot()`, millel on väga palju argm
 * `x` ja `y` -- koordinaatide vektorid,
 * `main = ` -- graafiku pealkiri jutumärkide vahel,
 * `xlab = ` ja `ylab = ` -- vastavalt *x* ja *y* telgede nimed jutumärkide vahel,
-* `type = h` -- (sõnast *histogram*) vertikaalsete joonte tegemiseks,
+* `type = 'h'` -- (sõnast *histogram*) vertikaalsete joonte tegemiseks,
 * `col = "red"` -- võimalik on muuta joonte värvi.
 
 *** =instructions
@@ -241,10 +241,12 @@ Põhiline funktsioon jooniste tegemiseks on `plot()`, millel on väga palju argm
         - muutuja `k` vastab juhusliku suuruse `X` võimalikele väärtustele, milleks on vektor (0, 1, 2, ..., 45).
         - muutuja `p` vastab binoomjaotuse tõenäosustele, mis on leitud binoomjaotuse tõenäosusfunktsiooni abil: $P(X = k)=C_45^k 0.7^k (1-0.7)^{45-k}$.
         - saadud vektorite põhjal on tehtud histogramm funktiooni `plot` abil.
-* **Ülesanne.** Olgu teada, et näpuvigade arv (*Y*) statistika konspektis ühe lehekülje kohta on Poissoni jaotusega juhuslik suurus, $Y\sim Po(0.4)$. Juhuslikult valitud leheküljel võib esineda 0, 1, 2, 3,.. viga. Joonista histogramm, mis vastab jaotusele $Po(0.4)$. Graafiku pealkirjaks pane *Poissoni jaotus parameetriga 0.4*. Tulbad värvi sinise värviga.
+* **Ülesanne.** Olgu teada, et näpuvigade arv (*Y*) statistika konspektis ühe lehekülje kohta on Poissoni jaotusega juhuslik suurus, $Y\sim Po(0.4)$.  Juhuslikult valitud leheküljel võib esineda 0, 1, 2, 3,... viga. Joonista histogramm, mis vastab jaotusele $Po(0.4)$. Graafiku pealkirjaks pane *Poissoni jaotus parameetriga 0.4*. Tulbad värvi sinise värviga.
 
 
 *** =hint
+* Tõenäosuste leidmiseks kasuta funktsiooni `dpois()`.
+* Graafiku väljastamiseks kasuta funktsiooni `plot` õige pealkirjaga (`main = "Poissoni jaotus parameetriga 0.4"`) ja sinist värvi joontega (`col = "blue"`).
 
 *** =pre_exercise_code
 ```{r}
@@ -253,24 +255,33 @@ Põhiline funktsioon jooniste tegemiseks on `plot()`, millel on väga palju argm
 
 *** =sample_code
 ```{r}
+# Näide.
+
+k <- 0:45 #täisarvuline vektor väärtustega 0, 2, ..., 45
+p <- dbinom(k, 45, 0.7) #vektorile k vastavad tõenäosused binoomjaotuse järgi
+plot(k, p, type = 'h', main = "Binoomajotus parameetritega 45 ja 0.7", col = "green")
+
+# Ülesanne.
+
+k <- ___ : 50 #oletame, et vigade arvude maksimum on 50 
+p <- ______(k, ____)
+plot(______________)
 
 ```
 
 *** =solution
 ```{r}
-# Olgu X liiklusõnnetuste arv ööpäevas linnas T.
+# Näide.
 
-# Tõenäosus, et ööpäeva jooksul juhtub linnas täpselt 1 liiklusõnnetus:
-yl1 <- dpois(1, lambda = 3)
+k <- 0:45 #täisarvuline vektor väärtustega 0, 2, ..., 45
+p <- dbinom(k, 45, 0.7) #vektorile k vastavad tõenäosused binoomjaotuse järgi
+plot(k, p, type = 'h', main = "Binoomajotus parameetritega 45 ja 0.7", col = "green")
 
-# Tõenäosus, et ööpäeva jooksul ei juhtu ühtegi õnnetust, P(X = 0):
-yl2 <- dpois(0, lambda = 3)
+# Ülesanne.
 
-# Tõenäosus, et ööpäeva jooskul juhtub mitte rohkem kui 2 liiklusõnnetust, P(X <= 2): 
-yl3 <- ppois(2, lambda = 3)
-
-# Tõenäosus, et ööpäeva jooksul juhtub vähemalt 5 liiklusõnnetust, P(X >= 5) = P(X > 4):
-yl4 <- ppois(4, lambda = 3, lower.tail = FALSE)
+k <- 0 : 50 #oletame, et vigade arvude maksimum on 50 
+p <- dpois(k, 0.4)
+plot(k, p, type = 'h', main = "Poissoni jaotus parameetriga 0.4", col = "blue")
 
 ```
 
@@ -279,14 +290,11 @@ yl4 <- ppois(4, lambda = 3, lower.tail = FALSE)
 
 # submission correctness tests
 
-test_object("yl2", undefined_msg = NULL, incorrect_msg = "Kas kasutasid funktsiooni `dpois()`, et leida $P(X = 0)$?")
-test_object("yl3", undefined_msg = NULL, incorrect_msg = "Kas kasutasid funktsiooni `ppois()`, et leida $P(X <= 2)$?")
-test_object("yl4", undefined_msg = NULL, incorrect_msg = "Kas kasutasid funktsiooni `ppois()`, et leida $P(X > 4)$ ja argumenti `lower.tail = FALSE`?")
+test_object("k", undefined_msg = NULL, incorrect_msg = "Muutuja `k` peab olema vektor täisarvudega 0-st kuni 50-ni.")
+test_object("p", undefined_msg = NULL, incorrect_msg = "Kas kasutasid funktsiooni `dpois()`, et leida tõenäosuste vektor?")
 
-# test if the students code produces an error
-test_error()
+test_function("plot", args=c("main", "col"), incorrect_msg = c("Kas kasutasid argumendi `main`, et väljastada graafikule pealkiri?", "Kas kasutasid sinist värvi tulpadele? (ingl. blue)"))
 
-# Final message the student will see upon completing the exercise
-success_msg("Võrratu! Kolm diskreetset jaotust on nüüd selged!")
+success_msg("Sa oskad juba nii palju! Briljantne!")
 
 ```
