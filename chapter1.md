@@ -10,7 +10,7 @@ Jaotusel on kaks parameetrit: katsete arv $n$  ja sündmuse $A$ realiseerumise t
 
 Binoomajotusega on näiteks kirjade arv, kui visata münti 20 korda. Siin on kokku 20 katset ning igal katselt kiri võib tulla tõenäosusega 0.5, seega $X\sim Bin(20,\ 0.5)$ ja $X$="kirjade koguarv". Binoomajotusega on seotud `R`-is järgmised funktsioonid:
 
-* `dbinom()`: binoomjaotuse tõenäosusfunktsiooni väärtuseed, ehk tõenäosused $P(X = x)$;
+* `dbinom()`: binoomjaotuse tõenäosusfunktsiooni väärtused, ehk tõenäosused $P(X = x)$;
 * `pbinom()`: kumulatiivsed tõenäosused ehk jaotusfunktsiooni väärtused, $P(X \leq x)$;
 * `qbinom()`: kvantiilide väärtused binoomjaotuse korral;
 * `rbinom()`: (pseudo)juhuslik(ud) väärtus(ed) binoomjaotusest.
@@ -18,7 +18,7 @@ Binoomajotusega on näiteks kirjade arv, kui visata münti 20 korda. Siin on kok
 Kasuta `help()` või `?`, et teada saada rohkem nende funktsioonide kasutuse kohta.
 
 *** =instructions
-* Oletame, et poes, kus müüakse t-särke, on eelneva statistika põhjal teada: klient ostab särgi tõenäosusega 0.3. Poes on hetkel 8 kliente, kes vaatavad ringi. Kliendid omavahel ei suhtle.
+* Oletame, et poes, kus müüakse t-särke, on eelneva statistika põhjal teada: klient ostab särgi tõenäosusega 0.3. Poes on hetkel 8 klienti, kes vaatavad ringi. Kliendid omavahel ei suhtle.
 * Mis on tõenäosus, et kaks nendest ostavad t-särgi?
 * Mis on tõenäosus, et seitse nendest ostab t-särgi?
 * Mis on tõenäosus, et *vähemalt* kaks nendest ostab t-särgi? Pane tähele, et pead kasutama argumenti `lower.tail`. Sellel argumendil on kaks võimalikku väärtust: kui `TRUE` (vaikimisi), siis leitakse tõenäosust $P(X\leq x)$, kui `FALSE`, siis $P(X>x)$.
